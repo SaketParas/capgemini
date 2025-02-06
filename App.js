@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import transactions from './Data/mydata';
 
-// Function to calculate points based on the rules
 const calculatePoints = (amount) => {
   let points = 0;
   if (amount > 100) {
-    points += (amount - 100) * 2; // 2 points for every dollar over $100
-    amount = 100; // Adjust remaining amount
+    points += (amount - 100) * 2; 
+    amount = 100; 
   }
   if (amount > 50) {
-    points += (amount - 50) * 1; // 1 point for every dollar between $50 and $100
+    points += (amount - 50) * 1; 
   }
   return points;
 };
 
-// Function to simulate an API call
 const fetchTransactions = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(transactions);
-    }, 1000); // Simulating 1 second delay
+    }, 1000); 
   });
 };
 
@@ -39,7 +37,6 @@ const App = () => {
     return `${date.getMonth() + 1}-${date.getFullYear()}`;
   };
 
-  // Group transactions by customer and month
   const calculateCustomerPoints = () => {
     const customerPoints = {};
 
